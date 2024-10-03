@@ -19,3 +19,17 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
+tasks.register<JavaExec>("runHelloWorld") {
+    group = "application"
+    description = "Run the HelloWorld class"
+
+    // Specify the main class to run
+    mainClass.set("HelloWorld")
+
+    // Specify the classpath
+    classpath = sourceSets["main"].runtimeClasspath
+
+    // Optionally, you can pass arguments to the program here
+    args = listOf() // Add program arguments if needed
+}
